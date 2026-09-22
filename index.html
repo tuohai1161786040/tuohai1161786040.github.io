@@ -3,65 +3,515 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Yi Jia | Academic Homepage</title>
+
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
-      font-family: Arial, sans-serif;
-      max-width: 900px;
-      margin: 60px auto;
-      padding: 0 20px;
-      line-height: 1.7;
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
       color: #222;
+      background: #ffffff;
+      line-height: 1.7;
     }
-    h1 {
-      font-size: 36px;
-      margin-bottom: 10px;
-    }
-    h2 {
-      margin-top: 40px;
-      border-bottom: 1px solid #ddd;
-      padding-bottom: 8px;
-    }
+
     a {
-      color: #2a5db0;
+      color: #1f5fbf;
       text-decoration: none;
     }
+
     a:hover {
       text-decoration: underline;
     }
+
+    .container {
+      width: min(1100px, 92%);
+      margin: 0 auto;
+    }
+
+    /* 顶部导航 */
+    header {
+      border-bottom: 1px solid #e5e5e5;
+      background: #fff;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 70px;
+      gap: 20px;
+    }
+
+    .brand {
+      font-size: 22px;
+      font-weight: 700;
+      color: #111;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 26px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: #333;
+      font-size: 15px;
+    }
+
+    /* 首页介绍 */
+    .hero {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 42px;
+      align-items: center;
+      padding: 70px 0 45px;
+    }
+
+    .avatar {
+      width: 210px;
+      height: 210px;
+      object-fit: cover;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      background: #f3f3f3;
+    }
+
+    .hero h1 {
+      margin: 0 0 10px;
+      font-size: 42px;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .institution {
+      font-size: 17px;
+      color: #555;
+      margin-bottom: 18px;
+    }
+
+    .hero p {
+      max-width: 760px;
+      font-size: 16px;
+    }
+
+    .quick-links {
+      margin-top: 20px;
+      display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .quick-links a {
+      padding: 8px 14px;
+      border: 1px solid #bbb;
+      border-radius: 5px;
+      color: #222;
+      background: #fafafa;
+    }
+
+    /* 通用 section */
+    section {
+      padding: 35px 0;
+    }
+
+    section h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 8px;
+    }
+
+    /* 研究方向 */
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .research-card {
+      padding: 18px 20px;
+      border: 1px solid #e2e2e2;
+      border-radius: 8px;
+      background: #fafafa;
+    }
+
+    .research-card h3 {
+      margin: 0 0 8px;
+      font-size: 19px;
+    }
+
+    /* News */
+    .news-list {
+      padding-left: 20px;
+    }
+
+    .news-list li {
+      margin-bottom: 10px;
+    }
+
+    .date {
+      font-weight: 700;
+      margin-right: 8px;
+    }
+
+    /* 论文 */
+    .publication {
+      margin-bottom: 24px;
+    }
+
+    .publication-title {
+      font-weight: 700;
+      font-size: 17px;
+    }
+
+    .publication-meta {
+      color: #555;
+      margin-top: 3px;
+    }
+
+    .publication-links {
+      margin-top: 5px;
+    }
+
+    .publication-links a {
+      margin-right: 12px;
+    }
+
+    /* 项目 */
+    .project {
+      margin-bottom: 22px;
+    }
+
+    .project h3 {
+      margin-bottom: 5px;
+      font-size: 19px;
+    }
+
+    /* 页脚 */
+    footer {
+      margin-top: 40px;
+      border-top: 1px solid #ddd;
+      padding: 28px 0 40px;
+      color: #666;
+      font-size: 14px;
+    }
+
+    @media (max-width: 760px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .avatar {
+        margin: 0 auto;
+      }
+
+      .hero p {
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .quick-links {
+        justify-content: center;
+      }
+
+      .research-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        flex-direction: column;
+        justify-content: center;
+        padding: 15px 0;
+      }
+
+      .nav-links {
+        justify-content: center;
+      }
+    }
   </style>
 </head>
+
 <body>
 
-  <h1>Yi Jia / 贾毅</h1>
+  <!-- 顶部导航 -->
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">Yi Jia / 贾毅</div>
 
-  <p>
-    Ph.D. Student<br>
-    Xi'an University of Architecture and Technology
-  </p>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#research">Research</a>
+          <a href="#news">News</a>
+          <a href="#publications">Publications</a>
+          <a href="#projects">Projects</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </header>
 
-  <h2>Research Interests</h2>
-  <p>
-    Computer Vision, Small Object Detection, 3D Concrete Printing, Intelligent Construction.
-  </p>
+  <main class="container">
 
-  <h2>About Me</h2>
-  <p>
-    I am currently a Ph.D. student focusing on computer vision and intelligent construction.
-    My research interests include small object detection, visual perception, and 3D concrete printing.
-  </p>
+    <!-- 首页 -->
+    <section class="hero" id="about">
 
-  <h2>Publications</h2>
-  <p>
-    FocusDet: an efficient object detector for small object,
-    <i>Scientific Reports</i>, 2024.
-    <a href="https://www.nature.com/articles/s41598-024-61136-w">[Paper]</a>
-  </p>
+      <!--
+        之后你上传头像到仓库，比如 images/profile.jpg
+        然后把下面 src 改成：
+        images/profile.jpg
+      -->
+      <img class="avatar"
+           src="https://via.placeholder.com/210x210.png?text=Photo"
+           alt="Yi Jia">
 
-  <h2>Contact</h2>
-  <p>
-    Email: your-email@example.com
-  </p>
+      <div>
+        <h1>Yi Jia / 贾毅</h1>
+
+        <div class="subtitle">
+          Ph.D. Student
+        </div>
+
+        <div class="institution">
+          Xi'an University of Architecture and Technology
+        </div>
+
+        <p>
+          I am currently a Ph.D. student focusing on computer vision and intelligent construction.
+          My research interests include small object detection, visual perception,
+          3D concrete printing, and deep-learning-based intelligent inspection.
+        </p>
+
+        <p>
+          我目前主要从事计算机视觉、小目标检测、3D打印混凝土智能检测及智能建造相关研究。
+        </p>
+
+        <div class="quick-links">
+          <a href="mailto:your-email@example.com">Email</a>
+
+          <!-- 后面可以换成你的真实 GitHub -->
+          <a href="https://github.com/tuohai1161786040" target="_blank">GitHub</a>
+
+          <!-- 后面上传 cv.pdf 后取消注释 -->
+          <!-- <a href="cv.pdf" target="_blank">CV</a> -->
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- 研究方向 -->
+    <section id="research">
+      <h2>Research Interests</h2>
+
+      <div class="research-grid">
+
+        <div class="research-card">
+          <h3>Small Object Detection</h3>
+          <p>
+            Lightweight object detection, multi-scale feature fusion,
+            dense small object detection, and Transformer-based detectors.
+          </p>
+        </div>
+
+        <div class="research-card">
+          <h3>Computer Vision</h3>
+          <p>
+            Deep learning for visual perception, feature extraction,
+            image understanding, and object detection.
+          </p>
+        </div>
+
+        <div class="research-card">
+          <h3>3D Concrete Printing</h3>
+          <p>
+            Visual inspection of defects, surface quality assessment,
+            pore and deformation recognition for 3D printed concrete.
+          </p>
+        </div>
+
+        <div class="research-card">
+          <h3>Intelligent Construction</h3>
+          <p>
+            Artificial intelligence and computer vision methods
+            for intelligent construction and automated quality inspection.
+          </p>
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- 新闻 -->
+    <section id="news">
+      <h2>News</h2>
+
+      <ul class="news-list">
+
+        <li>
+          <span class="date">2026</span>
+          Started Ph.D. research in computer vision and intelligent construction.
+        </li>
+
+        <li>
+          <span class="date">2024</span>
+          Our work
+          <i>FocusDet: an efficient object detector for small object</i>
+          was published in <i>Scientific Reports</i>.
+        </li>
+
+      </ul>
+    </section>
+
+
+    <!-- 论文 -->
+    <section id="publications">
+      <h2>Selected Publications</h2>
+
+      <div class="publication">
+
+        <div class="publication-title">
+          FocusDet: an efficient object detector for small object
+        </div>
+
+        <div class="publication-meta">
+          Yanli Shi, <strong>Yi Jia</strong>, Xianhe Zhang
+        </div>
+
+        <div class="publication-meta">
+          <i>Scientific Reports</i>, 2024, 14:10697
+        </div>
+
+        <div class="publication-links">
+
+          <a href="https://www.nature.com/articles/s41598-024-61136-w"
+             target="_blank">
+            [Paper]
+          </a>
+
+          <a href="https://doi.org/10.1038/s41598-024-61136-w"
+             target="_blank">
+            [DOI]
+          </a>
+
+        </div>
+
+      </div>
+
+
+      <!--
+      后面你有第二篇论文，可以直接复制上面的 publication 块
+      再改标题、作者和链接
+      -->
+
+    </section>
+
+
+    <!-- 项目 -->
+    <section id="projects">
+      <h2>Research Projects</h2>
+
+      <div class="project">
+        <h3>
+          Small Object Detection in Complex Environments
+        </h3>
+
+        <p>
+          Research on feature extraction, multi-scale feature fusion,
+          and efficient detection heads for UAV, underwater, and
+          other complex small-object scenarios.
+        </p>
+      </div>
+
+      <div class="project">
+        <h3>
+          3D Printed Concrete Visual Inspection
+        </h3>
+
+        <p>
+          Research on computer-vision-based recognition of surface defects,
+          pores, deformation, and quality variation in 3D printed concrete.
+        </p>
+      </div>
+
+      <div class="project">
+        <h3>
+          Transformer-based Multimodal Dynamic Small Object Detection
+        </h3>
+
+        <p>
+          Research on multimodal information fusion,
+          attention mechanisms, lightweight networks,
+          and real-time small-object detection.
+        </p>
+      </div>
+
+      <div class="project">
+        <h3>
+          Mu Us Sandy Land Ecosystem Monitoring
+        </h3>
+
+        <p>
+          Application of machine learning and data analysis
+          to desert ecosystem monitoring, evaluation,
+          and ecological protection.
+        </p>
+      </div>
+
+    </section>
+
+
+    <!-- 联系 -->
+    <section id="contact">
+      <h2>Contact</h2>
+
+      <p>
+        <strong>Yi Jia / 贾毅</strong>
+      </p>
+
+      <p>
+        Ph.D. Student<br>
+        Xi'an University of Architecture and Technology
+      </p>
+
+      <p>
+        Email:
+        <a href="mailto:your-email@example.com">
+          your-email@example.com
+        </a>
+      </p>
+
+      <p>
+        GitHub:
+        <a href="https://github.com/tuohai1161786040" target="_blank">
+          github.com/tuohai1161786040
+        </a>
+      </p>
+
+    </section>
+
+  </main>
+
+
+  <footer>
+    <div class="container">
+      © 2026 Yi Jia. Last updated: September 2026.
+    </div>
+  </footer>
 
 </body>
 </html>
